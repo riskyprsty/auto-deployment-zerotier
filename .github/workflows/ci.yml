@@ -20,13 +20,13 @@ jobs:
       with:
         node-version: 18.x
     - name: Install the dependencies
-      run: pnpm install
+      run: npm install
 
     - name: Linter
-      run: pnpm run lint
+      run: npm run lint
 
     - name: Run tests
-      run: pnpm test
+      run: npm test
 
     - name: Build test
-      run: pnpm run build
+      run: npm run build

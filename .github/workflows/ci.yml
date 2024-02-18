@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  ci:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+    - name: Install the dependencies
+      run: pnpm install
+
+    - name: Linter
+      run: pnpm run lint
+
+    - name: Run tests
+      run: pnpm test
+
+    - name: Build test
+      run: pnpm run build
